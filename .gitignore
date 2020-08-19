@@ -1,0 +1,9 @@
+*.pyc
+*~
+/.vscode
+__pycache__
+djangovenv
+db.sqlite3
+/static
+/main/migrations
+.DS_Store
