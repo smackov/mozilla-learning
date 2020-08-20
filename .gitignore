@@ -5,5 +5,5 @@ __pycache__
 djangovenv
 db.sqlite3
 /static
-/main/migrations
+/catalog/migrations
 .DS_Store
