@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 import uuid
 
 # Create your models here.
@@ -80,7 +81,6 @@ class Author(models.Model):
         return '{0} {1}'.format(self.first_name, self.last_name)
 
     def get_absolute_url(self):
-        from django.core.urlresolvers import reverse
         return reverse('author-detail', args=[str(self.id)])
 
 

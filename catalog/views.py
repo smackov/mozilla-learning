@@ -9,6 +9,7 @@ def index(request):
 
     # Generate counts of some of the main objects
     num_books = Book.objects.all().count()
+    num_books_with_word_star = Book.objects.filter(title__icontains='star').count()
     num_instances = BookInstance.objects.all().count()
     num_authors = Author.objects.count()
 
@@ -17,6 +18,7 @@ def index(request):
 
     context = {
         'num_books': num_books,
+        'num_books_with_word_star': num_books_with_word_star,
         'num_instances': num_instances,
         'num_authors': num_authors,
         'num_instances_available': num_instances_available,
@@ -29,6 +31,6 @@ def index(request):
 class BookListView(generic.ListView):
     model = Book
     context_objects_name = 'my_book_list'
-    queryset = Book.objects.filter(title__icontain='war')[:5]
+    queryset = Book.objects.filter(title__icontains='war')[:5]
     template_name = 'books/my_arbitrary_template_name_list.html'
 
