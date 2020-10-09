@@ -86,6 +86,7 @@ class Author(models.Model):
 
     class Meta:
         ordering = ['last_name', 'first_name']
+        permissions = (('can_create_authors', 'Can create, update and delete authors'),)
 
     def __str__(self):
         return '{0} {1}'.format(self.first_name, self.last_name)

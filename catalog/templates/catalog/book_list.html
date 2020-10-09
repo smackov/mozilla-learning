@@ -7,9 +7,19 @@
     {% for book in book_list %}
       <li>
         <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{ book.author }})
+
+        {% if perms.catalog.can_create_authors %}
+        <a href="{% url 'book_update' book.id %}" class="btn btn-outline-primary btn-sm">Change</a>
+        <a href="{% url 'book_delete' book.id %}" class="btn btn-outline-primary btn-sm">Delete</a>
+        {% endif %}
+
       </li>
     {% endfor %}
   </ul>
+
+  {% if perms.catalog.can_create_authors %}
+  <a href="{% url 'book_create' %}" class="btn btn-outline-primary btn-sm">Add new book!</a>
+  {% endif %}
   {% else %}
     <p>There are no books in the library</p>
   {% endif %}

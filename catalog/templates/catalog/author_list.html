@@ -9,6 +9,7 @@
             
             {% for author in author_list %}
                 <li>
+                    <p>
                     <a href="{{ author.get_absolute_url }}">{{ author.first_name }} {{ author.last_name }}
                     ({{ author.date_of_birth }}
                     
@@ -18,11 +19,25 @@
                         - n.d.
                     {% endif %}
                     )</a>
+                    
+                    {% if perms.catalog.can_create_authors %}
+                        <a href="{% url 'author_update' author.id %}" class="btn btn-outline-primary btn-sm">Change</a>
+                        <a href="{% url 'author_delete' author.id %}" class="btn btn-outline-primary btn-sm">Delete</a>
+                    {% endif %}
+                        
+                    </p>
                 </li>
             {% endfor %}
                 
         </ul>
     {% endif %}
+    
+    
+    {% if perms.catalog.can_create_authors %}
+        <a href="{% url 'author_create' %}" class="btn btn-outline-primary btn-sm">Add new author!</a>
+    {% endif %}
+        
+                    
         
 {% endblock content %}
     
