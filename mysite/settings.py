@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '*m#tug1r=#s9qf-p^)5m8(51j-s#r8
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mozilla-learning.herokuapp.com','127.0.0.1']
 
 
 # Application definition
