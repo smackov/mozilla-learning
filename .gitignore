@@ -5,5 +5,12 @@ __pycache__
 djangovenv
 db.sqlite3
 /static
+/staticfiles
 /catalog/migrations
 .DS_Store
+
+# Text backup files
+*.bak
+
+# Database
+*.sqlite3
