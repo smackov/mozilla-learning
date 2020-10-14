@@ -6,7 +6,6 @@ djangovenv
 db.sqlite3
 /static
 /staticfiles
-/catalog/migrations
 .DS_Store
 
 # Text backup files
